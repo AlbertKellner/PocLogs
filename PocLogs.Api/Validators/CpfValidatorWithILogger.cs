@@ -13,38 +13,56 @@ public class CpfValidatorWithILogger
 
     public bool IsValid(string? cpf)
     {
-        _logger.LogInformation("Starting validation for {Cpf}", cpf);
+        CpfValidatorLogMessages.StartingValidation(_logger, cpf);
         if (string.IsNullOrWhiteSpace(cpf))
         {
-            _logger.LogInformation("CPF is null or empty");
+            CpfValidatorLogMessages.CpfNullOrEmpty(_logger);
             return false;
         }
 
-        cpf = new string(cpf.Where(char.IsDigit).ToArray());
-        _logger.LogInformation("Digits only: {Cpf}", cpf);
+        Span<char> digits = cpf.Length <= 32 ? stackalloc char[cpf.Length] : new char[cpf.Length];
+        int idx = 0;
+        foreach (var ch in cpf)
+        {
+            if (char.IsDigit(ch))
+                digits[idx++] = ch;
+        }
+        cpf = new string(digits.Slice(0, idx));
+        CpfValidatorLogMessages.DigitsOnly(_logger, cpf);
         if (cpf.Length != 11)
         {
-            _logger.LogInformation("Invalid length");
+            CpfValidatorLogMessages.InvalidLength(_logger);
             return false;
         }
 
-        if (cpf.Distinct().Count() == 1)
+        bool allEqual = true;
+        for (int i = 1; i < cpf.Length; i++)
         {
-            _logger.LogInformation("All digits equal");
+            if (cpf[i] != cpf[0])
+            {
+                allEqual = false;
+                break;
+            }
+        }
+        if (allEqual)
+        {
+            CpfValidatorLogMessages.AllDigitsEqual(_logger);
             return false;
         }
 
-        int[] numbers = cpf.Select(c => c - '0').ToArray();
+        int[] numbers = new int[11];
+        for (int i = 0; i < 11; i++)
+            numbers[i] = cpf[i] - '0';
 
         int sum = 0;
         for (int i = 0; i < 9; i++)
             sum += numbers[i] * (10 - i);
         int result = sum % 11;
         int firstDigit = result < 2 ? 0 : 11 - result;
-        _logger.LogInformation("First digit calculated: {Digit}", firstDigit);
+        CpfValidatorLogMessages.FirstDigitCalculated(_logger, firstDigit);
         if (numbers[9] != firstDigit)
         {
-            _logger.LogInformation("First digit mismatch");
+            CpfValidatorLogMessages.FirstDigitMismatch(_logger);
             return false;
         }
 
@@ -53,14 +71,14 @@ public class CpfValidatorWithILogger
             sum += numbers[i] * (11 - i);
         result = sum % 11;
         int secondDigit = result < 2 ? 0 : 11 - result;
-        _logger.LogInformation("Second digit calculated: {Digit}", secondDigit);
+        CpfValidatorLogMessages.SecondDigitCalculated(_logger, secondDigit);
         if (numbers[10] != secondDigit)
         {
-            _logger.LogInformation("Second digit mismatch");
+            CpfValidatorLogMessages.SecondDigitMismatch(_logger);
             return false;
         }
 
-        _logger.LogInformation("CPF is valid");
+        CpfValidatorLogMessages.CpfValid(_logger);
         return true;
     }
 }
