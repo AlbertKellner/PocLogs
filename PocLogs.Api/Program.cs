@@ -1,5 +1,6 @@
 using Serilog;
 using PocLogs.Api.Validators;
+using PocLogs.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<CorrelationIdMiddleware>();
 
 app.UseAuthorization();
 
