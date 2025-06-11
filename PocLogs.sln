@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocLogs.Api", "PocLogs.Api\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocLogs.Tests", "PocLogs.Tests\PocLogs.Tests.csproj", "{B2C051C9-C63A-4F5C-AEAF-99F0B0388E5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocLogs.Benchmarks", "PocLogs.Benchmarks\PocLogs.Benchmarks.csproj", "{5EBB4D43-FA37-41FE-8A89-D7B955D500EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{B2C051C9-C63A-4F5C-AEAF-99F0B0388E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C051C9-C63A-4F5C-AEAF-99F0B0388E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C051C9-C63A-4F5C-AEAF-99F0B0388E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EBB4D43-FA37-41FE-8A89-D7B955D500EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EBB4D43-FA37-41FE-8A89-D7B955D500EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EBB4D43-FA37-41FE-8A89-D7B955D500EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EBB4D43-FA37-41FE-8A89-D7B955D500EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
