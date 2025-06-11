@@ -20,10 +20,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PocLogs.Api\PocLogs.Api.csproj" />
+    <ProjectReference Include="..\PocLogs.Benchmarks\PocLogs.Benchmarks.csproj" />
   </ItemGroup>
 
 </Project>
