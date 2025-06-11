@@ -1,0 +1,24 @@
+using Microsoft.AspNetCore.Mvc;
+using PocLogs.Api.Models;
+using PocLogs.Api.Validators;
+
+namespace PocLogs.Api.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class CpfILoggerController : ControllerBase
+{
+    private readonly CpfValidatorWithILogger _validator;
+
+    public CpfILoggerController(CpfValidatorWithILogger validator)
+    {
+        _validator = validator;
+    }
+
+    [HttpPost]
+    public ActionResult<bool> Post([FromBody] CpfRequest request)
+    {
+        bool valid = _validator.IsValid(request.Cpf);
+        return Ok(valid);
+    }
+}
