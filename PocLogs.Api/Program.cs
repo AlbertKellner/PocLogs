@@ -8,7 +8,7 @@ builder.Host.UseSerilog((context, services, configuration) =>
 {
     configuration
         .ReadFrom.Configuration(context.Configuration)
-        .WriteTo.Console();
+        .WriteTo.Async(a => a.Console());
 });
 
 // Add services to the container.
