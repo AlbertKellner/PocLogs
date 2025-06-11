@@ -18,7 +18,12 @@ public class CpfILoggerController : ControllerBase
     [HttpPost]
     public ActionResult<bool> Post([FromBody] CpfRequest request)
     {
-        bool valid = _validator.IsValid(request.Cpf);
+        bool valid = false;
+        for (int i = 0; i < 1000; i++)
+        {
+            valid = _validator.IsValid(request.Cpf);
+        }
+
         return Ok(valid);
     }
 }
