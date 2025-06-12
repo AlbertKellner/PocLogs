@@ -1,4 +1,4 @@
-name: Cobertura por Arquivo
+name: Cobertura
 
 on:
   push:
@@ -17,17 +17,14 @@ jobs:
           dotnet-version: '8.0.x'
       - name: Restaurar dependências
         run: dotnet restore
+      - name: Instalar dotnet-coverage
+        run: dotnet tool install --global dotnet-coverage
       - name: Executar testes com cobertura
-        run: dotnet test --no-build --collect:"XPlat Code Coverage" --results-directory TestResults
-      - name: Instalar ReportGenerator
-        run: dotnet tool install --global dotnet-reportgenerator-globaltool
-      - name: Gerar relatório em Markdown
         run: |
           export PATH="$PATH:$HOME/.dotnet/tools"
-          reportgenerator -reports:"TestResults/**/coverage.cobertura.xml" -targetdir:CoverageReport -reporttypes:MarkdownSummaryGithub
-          cat CoverageReport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+          dotnet-coverage collect 'dotnet test --no-build' -f cobertura -o coverage.cobertura.xml
       - name: Publicar artefatos
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: CoverageReport
+          path: coverage.cobertura.xml
