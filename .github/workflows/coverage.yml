@@ -22,7 +22,7 @@ jobs:
       - name: Executar testes com cobertura
         run: |
           export PATH="$PATH:$HOME/.dotnet/tools"
-          dotnet-coverage collect 'dotnet test --no-build' -f cobertura -o coverage.cobertura.xml
+          dotnet-coverage collect --output coverage.cobertura.xml --format cobertura -- dotnet test --no-build
       - name: Publicar artefatos
         uses: actions/upload-artifact@v4
         with:
