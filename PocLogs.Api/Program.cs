@@ -3,8 +3,6 @@ using Serilog;
 using PocLogs.Api.Validators;
 using PocLogs.Api.Middlewares;
 
-[assembly: ExcludeFromCodeCoverage]
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, services, configuration) =>
@@ -39,4 +37,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+
+[ExcludeFromCodeCoverage]
+public partial class Program { }
+

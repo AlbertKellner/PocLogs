@@ -29,5 +29,10 @@ A documentação Swagger ficará disponível em `https://localhost:7038/swagger`
 
 ## Testes e benchmark
 
-Os testes em `PocLogs.Tests` cobrem os controllers e um benchmark que assegura 
+Os testes em `PocLogs.Tests` cobrem os controllers e um benchmark que assegura
 que a validação de CPF leva menos de um segundo em média.
+
+## Cobertura
+
+A action **Cobertura por Arquivo** executa os testes e gera um relatório de
+cobertura em Markdown. O resumo é exibido diretamente no workflow do GitHub.
