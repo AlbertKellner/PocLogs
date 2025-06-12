@@ -1,6 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Serilog;
 using PocLogs.Api.Validators;
 using PocLogs.Api.Middlewares;
+
+[assembly: ExcludeFromCodeCoverage]
 
 var builder = WebApplication.CreateBuilder(args);
 
