@@ -5,9 +5,9 @@ namespace PocLogs.Api.Validators;
 internal static partial class CpfValidatorLogMessages
 {
     [LoggerMessage(EventId = 0, Level = LogLevel.Information, Message = "Starting validation for {Cpf}")]
-    public static partial void StartingValidation(ILogger logger, string? cpf);
+    public static partial void StartingValidation(ILogger logger, string cpf);
 
-    [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "CPF is null or empty")]
+    [LoggerMessage(EventId = 1, Level = LogLevel.Information, Message = "CPF is empty or whitespace")]
     public static partial void CpfNullOrEmpty(ILogger logger);
 
     [LoggerMessage(EventId = 2, Level = LogLevel.Information, Message = "Digits only: {Cpf}")]

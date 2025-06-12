@@ -11,7 +11,7 @@ public class CpfValidatorWithILogger
         _logger = logger;
     }
 
-    public bool IsValid(string? cpf)
+    public bool IsValid(string cpf)
     {
         CpfValidatorLogMessages.StartingValidation(_logger, cpf);
         if (string.IsNullOrWhiteSpace(cpf))
