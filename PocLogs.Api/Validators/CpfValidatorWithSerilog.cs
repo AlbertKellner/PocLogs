@@ -11,7 +11,7 @@ public class CpfValidatorWithSerilog
         _logger = logger;
     }
 
-    public bool IsValid(string? cpf)
+    public bool IsValid(string cpf)
     {
         if (_logger.IsEnabled(Serilog.Events.LogEventLevel.Information))
         {
@@ -20,7 +20,7 @@ public class CpfValidatorWithSerilog
         if (string.IsNullOrWhiteSpace(cpf))
         {
             if (_logger.IsEnabled(Serilog.Events.LogEventLevel.Information))
-                _logger.Information("CPF is null or empty");
+                _logger.Information("CPF is empty or whitespace");
             return false;
         }
 
