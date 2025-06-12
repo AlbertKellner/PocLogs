@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using BenchmarkDotNet.Attributes;
 using Microsoft.Extensions.Logging.Abstractions;
 using PocLogs.Api.Validators;
@@ -5,6 +6,7 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 
+[ExcludeFromCodeCoverage]
 public class CpfValidationBenchmark
 {
     private readonly CpfValidatorWithILogger _iLoggerValidator;

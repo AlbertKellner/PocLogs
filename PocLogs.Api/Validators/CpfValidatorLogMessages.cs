@@ -1,6 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Logging;
 
 namespace PocLogs.Api.Validators;
+[ExcludeFromCodeCoverage]
 
 internal static partial class CpfValidatorLogMessages
 {
