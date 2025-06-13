@@ -36,3 +36,7 @@ que a validação de CPF leva menos de um segundo em média.
 
 A action **Cobertura por Arquivo** executa os testes e gera um relatório de
 cobertura em Markdown. O resumo é exibido diretamente no workflow do GitHub.
+
+## Documentação Completa
+
+Todo o material detalhado sobre arquitetura, rotas, validação de CPF e execução do projeto está disponível na [Wiki](wiki/Home.md). Consulte a Wiki para mais informações.
