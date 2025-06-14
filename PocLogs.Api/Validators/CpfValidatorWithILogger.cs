@@ -1,7 +1,9 @@
 using Microsoft.Extensions.Logging;
 
+using System.Diagnostics.CodeAnalysis;
 namespace PocLogs.Api.Validators;
 
+[ExcludeFromCodeCoverage]
 public class CpfValidatorWithILogger
 {
     private readonly ILogger<CpfValidatorWithILogger> _logger;

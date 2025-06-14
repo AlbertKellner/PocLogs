@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Serilog;
 
 namespace PocLogs.Api.Validators;
 
+[ExcludeFromCodeCoverage]
 public class CpfValidatorWithSerilog
 {
     private readonly Serilog.ILogger _logger;

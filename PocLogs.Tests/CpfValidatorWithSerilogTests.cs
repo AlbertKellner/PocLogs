@@ -47,4 +47,37 @@ public class CpfValidatorWithSerilogTests
     {
         Assert.False(_validator.IsValid("52998224724"));
     }
+
+    [Fact]
+    public void IsValid_HandlesNonDigitCharacters()
+    {
+        Assert.True(_validator.IsValid("529.982.247-25"));
+    }
+
+    [Fact]
+    public void IsValid_WorksWithDisabledLogging()
+    {
+        var silentLogger = new LoggerConfiguration()
+            .MinimumLevel.Fatal()
+            .CreateLogger();
+        var validator = new CpfValidatorWithSerilog(silentLogger);
+        Assert.True(validator.IsValid("52998224725"));
+    }
+
+    [Fact]
+    public void IsValid_ReturnsFalse_ForVeryLongInput()
+    {
+        var silentLogger = new LoggerConfiguration().CreateLogger();
+        var validator = new CpfValidatorWithSerilog(silentLogger);
+        string longCpf = new string('1', 40);
+        Assert.False(validator.IsValid(longCpf));
+    }
+
+    [Theory]
+    [InlineData("00000000604")]
+    [InlineData("00000001830")]
+    public void IsValid_HandlesVerifyingDigitsEdgeCases(string cpf)
+    {
+        Assert.True(_validator.IsValid(cpf));
+    }
 }
