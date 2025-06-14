@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Exclude>[PocLogs.Benchmarks]*,[PocLogs.Api]Program</Exclude>
+          <ExcludeByFile>**/*LoggerMessage.g.cs</ExcludeByFile>
+          <ExcludeByAttribute>CompilerGeneratedAttribute</ExcludeByAttribute>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
