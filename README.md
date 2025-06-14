@@ -39,5 +39,5 @@ cobertura em Markdown. O resumo é exibido diretamente no workflow do GitHub.
 
 ## Documentação Completa
 
-Todo o material detalhado sobre arquitetura, rotas, validação de CPF e execução do projeto está disponível na [Wiki](wiki/Home.md). Consulte a Wiki para mais informações.
+Todo o material detalhado sobre arquitetura, rotas, validação de CPF e execução do projeto está disponível na [Wiki](https://github.com/AlbertKellner/PocLogs/wiki). Consulte a Wiki para mais informações.
 As páginas localizadas no diretório `wiki/` são publicadas automaticamente na Wiki do GitHub por meio de um workflow de integração contínua.

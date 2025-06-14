@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Serilog;
 using PocLogs.Api.Validators;
 using PocLogs.Api.Middlewares;
@@ -37,7 +36,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
-[ExcludeFromCodeCoverage]
 public partial class Program { }
 

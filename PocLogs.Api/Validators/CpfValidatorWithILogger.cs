@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Logging;
-
 namespace PocLogs.Api.Validators;
 
 public class CpfValidatorWithILogger
