@@ -41,3 +41,9 @@ cobertura em Markdown. O resumo é exibido diretamente no workflow do GitHub.
 
 Todo o material detalhado sobre arquitetura, rotas, validação de CPF e execução do projeto está disponível na [Wiki](https://github.com/AlbertKellner/PocLogs/wiki). Consulte a Wiki para mais informações.
 As páginas localizadas no diretório `wiki/` são publicadas automaticamente na Wiki do GitHub por meio de um workflow de integração contínua.
+
+## Documentação Complementar
+
+Arquivos adicionais encontram-se na pasta [docs](docs/), incluindo exemplos de uso e detalhes sobre a configuração de logs.
+
+Para contribuir, leia o [CONTRIBUTING.md](CONTRIBUTING.md).

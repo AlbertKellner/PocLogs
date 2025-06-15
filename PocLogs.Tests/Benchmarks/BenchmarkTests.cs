@@ -15,5 +15,9 @@ public class BenchmarkTests
             double meanSeconds = meanNanoseconds / 1_000_000_000.0;
             Assert.True(meanSeconds < 1, $"Benchmark {report.BenchmarkCase.DisplayInfo} took {meanSeconds} seconds on average");
         }
+
+        var bench = new CpfValidationBenchmark();
+        Assert.True(bench.ValidateWithILogger());
+        Assert.True(bench.ValidateWithSerilog());
     }
 }
